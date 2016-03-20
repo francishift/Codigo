@@ -1,0 +1,52 @@
+<div class="uk-container uk-container-center" data-uk-scrollspy="{cls:'uk-animation-scale-up', delay:300, repeat: false}"> {articulos cat:25}
+  {tab [title]|color_inactive_handles=0|outline_handles=0|outline_content=0|align_left|left}
+  <div class="uk-animation-scale-up">
+    <div class="uk-slidenav-position" data-uk-slideshow="{kenburns:true, autoplay:true}">
+      <ul class="uk-slideshow">
+        {codigo}
+        <?php
+$idarticulo ="[id]";
+$consulta = "SELECT * FROM `a1407_fieldsattach_images` WHERE `articleid` LIKE '$idarticulo' AND `fieldsattachid`=9";
+$db->setQuery($consulta);
+$items = $db->loadObjectList();
+foreach($items as $item) {
+$ruta =  $item->image1; 
+echo " [[li]] [[img src=\"$ruta\" alt=\"Cover\"]][[/li]]";
+} 
+?>
+        {/codigo}
+      </ul>
+      <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
+        <li data-uk-slideshow-item="0"><a href=""></a>
+        </li>
+        <li data-uk-slideshow-item="1"><a href=""></a>
+        </li>
+        <li data-uk-slideshow-item="2"><a href=""></a>
+        </li>
+      </ul>
+    </div>
+    <h1>[title]</h1>
+    <div class="uk-grid">
+      <div class="uk-width-1-1 uk-width-small-1-3">
+        <h5> {codigo}
+          <?php
+$query = "SELECT value FROM `a1407_fieldsattach_values` WHERE `fieldsid` LIKE '8' AND `fieldsid`=8";
+$db->setQuery($query);
+$result = $db->loadResult();
+echo $result;
+?>
+          {/codigo} </h5>
+        <div class="subtitulo"> {codigo}
+          <?php
+$query = "SELECT value FROM `a1407_fieldsattach_values` WHERE `fieldsid` LIKE '7' AND `fieldsid`=7";
+$db->setQuery($query);
+$result = $db->loadResult();
+echo $result;
+?>
+          {/codigo} </div>
+      </div>
+      <div class="uk-width-1-1 uk-width-small-2-3"> [introtext] </div>
+    </div>
+  </div>
+  {/articulos}
+  {/tabs} </div>
