@@ -1,0 +1,8 @@
+
+
+<?php
+$query = "SELECT value FROM `a1407_fieldsattach_values` WHERE `id` LIKE '3' AND `fieldsid`=3";
+$db->setQuery($query);
+$result = $db->loadResult();
+echo html_entity_decode($result);
+?>

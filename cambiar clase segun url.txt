@@ -1,0 +1,8 @@
+jQuery(function ($){
+  var loc = window.location.href;
+  if(/programas/.test(loc)) {
+  var $determina =  $('ul.uk-tab li').eq(4); 
+    $determina.addClass('uk-active');
+  }
+
+});

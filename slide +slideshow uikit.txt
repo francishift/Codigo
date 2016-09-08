@@ -1,0 +1,59 @@
+<div class="uk-container uk-container-center">
+  <h1>Programas</h1>
+</div>
+<div id="slideshow" data-uk-slideshow="{autoplay:false}">
+  <div id="slider" class="uk-slidenav-position uk-container uk-container-center " data-uk-slider="{center:true}">
+    <div class="uk-slider-container">
+      <ul class="uk-slider uk-grid-width-medium-1-5 ">
+        {codigo}
+         <?php
+         //consulto las imagenes de las categorias con el campo fieldsattach 20
+         $consulta = "SELECT * FROM `a1407_fieldsattach_categories_values` WHERE `fieldsid` LIKE '20' AND `fieldsid`=20";
+         $db->setQuery($consulta);
+         $items = $db->loadObjectList();
+         foreach($items as $item) {
+         $ruta =  $item->value;                  //archivo de imagen para la ruta
+         $categoria =  $item->catid;          //id de la categoría para la ruta
+         $a=-1; $b++; $c=$a+$b;              //suma de 0,1,2,3 etc en la lista 
+         echo "[[li data-uk-slideshow-item='$c']][[img src='/images/documentscategories/$categoria/$ruta']][[/li]]";
+         }
+         ?>
+      {/codigo} 
+      </ul>
+      <a href="" class="uk-slidenav  uk-slidenav-previous" data-uk-slider-item="previous"><img src="images/izq-prog.png"></a>
+      <a href="" class="uk-slidenav  uk-slidenav-next" data-uk-slider-item="next"><img src="images/der-prog.png"></a>
+    </div>
+  </div>
+  <div class="uk-slidenav-position">
+    <ul class="uk-slideshow">
+      <li>
+        <div data-uk-slideset="{default: 3}" class="uk-margin" style="">
+          <div class="uk-slidenav-position uk-margin">
+            <ul class="uk-slideset uk-grid uk-flex-center uk-grid-width-1-3">
+              <li class="uk-text-center">hola1</li>
+              <li class="uk-text-center">hola2</li>
+              <li class="uk-text-center">hola3</li>
+              <li class="uk-text-center">hola4</li>
+              <li class="uk-text-center">hola5</li>
+              <li class="uk-text-center">hola6</li>
+            </ul>
+            <a data-uk-slideset-item="previous" class="uk-slidenav uk-slidenav-previous" href="#"></a>
+            <a data-uk-slideset-item="next" class="uk-slidenav uk-slidenav-next" href="#"></a>
+          </div>
+          <ul class="uk-slideset-nav uk-dotnav uk-flex-center">
+            <li data-uk-slideset-item="0" class=""><a></a>
+            </li>
+            <li data-uk-slideset-item="1" class=""><a></a>
+            </li>
+            <li data-uk-slideset-item="2" class="uk-active"><a></a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li><img src="http://getuikit.com/docs/images/placeholder_800x400_2.jpg"></li>
+      <li><img src="http://getuikit.com/docs/images/placeholder_800x400_3.jpg"></li>
+      <li><img src="http://getuikit.com/docs/images/placeholder_800x400_1.jpg"></li>
+      <li><img src="http://getuikit.com/docs/images/placeholder_800x400_2.jpg"></li>
+    </ul>
+  </div>
+</div>

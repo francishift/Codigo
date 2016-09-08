@@ -1,0 +1,1 @@
+<?php $lang = JFactory::getLanguage(); $result = $lang->getTag(); if ($result=="es-ES") { echo 'organizacion';} else { echo 'organization';} ?>

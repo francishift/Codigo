@@ -1,0 +1,51 @@
+<div class="uk-container uk-container-center">
+  <div class="uk-grid">
+    <div class="uk-width-1-1 uk-width-medium-1-2"> {articulo 143}
+      <h1>[title]</h1>
+      [text] </div>
+    <div class="uk-width-1-1 uk-width-medium-1-2">
+      <div class="uk-slidenav-position"  data-uk-slideshow="{animation: 'scale', autoplay:true, delay:100}">
+        <ul id="lanza" class="uk-slideshow">
+          {codigo}
+          <?php
+$idarticulo ="[id]";
+$consulta = "SELECT * FROM `a1407_fieldsattach_images` WHERE `articleid` LIKE '$idarticulo' AND `fieldsattachid`=14";
+$db->setQuery($consulta);
+$items = $db->loadObjectList();
+foreach($items as $item) {
+$ruta =  $item->image1; 
+echo " [[li id=\"ingenieria\"]] [[img src=\"$ruta\" alt=\" [title]\"]][[/li]]";
+} 
+?>
+          {/codigo}
+        </ul>
+        <!-- flecha de navegación -->
+        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
+        <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+        <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
+          
+          <!-- dotnav imagenes --> 
+          {codigo}
+          <?php
+        $a=-1;
+        foreach($items as $item) {
+        $a++;
+        echo "[[li data-uk-slideshow-item=\"$a\"]][[a href='']][[/a]][[/li]]";
+        } ?>
+          {/codigo}
+        </ul>
+      </div>
+    </div>
+    {/articulo} </div>
+</div>
+<script>
+jQuery(function ($) {
+  var slideshow = $('#slideshow');
+  
+  $('ul.uk-subnav li').click(function () {
+  var $activo = $('#ingenieria');
+    console.log('hola');
+        $activo.addClass('mostrar');
+  });
+});
+</script>

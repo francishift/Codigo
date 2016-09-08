@@ -1,0 +1,138 @@
+<div class=" historia">  
+  <script type="text/javascript" src="js/jssor.slider.min.js"></script>
+    <script>
+        historia_slider_init = function() {
+            
+            var historia_SlideshowTransitions = [
+              {$Duration:1200,$Zoom:1,$Easing:{$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad},$Opacity:2},
+              {$Duration:1000,$Zoom:11,$SlideOut:true,$Easing:{$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,$Zoom:1,$Rotate:1,$During:{$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+              {$Duration:1000,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+              {$Duration:1200,x:0.5,$Cols:2,$Zoom:1,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:4,$Cols:2,$Zoom:11,$SlideOut:true,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.6,$Zoom:1,$Rotate:1,$During:{$Left:[0.2,0.8],$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Left:$Jease$.$Swing,$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+              {$Duration:1000,x:-4,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+              {$Duration:1200,x:-0.6,$Zoom:1,$Rotate:1,$During:{$Left:[0.2,0.8],$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Left:$Jease$.$Swing,$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+              {$Duration:1000,x:4,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+              {$Duration:1200,x:0.5,y:0.3,$Cols:2,$Zoom:1,$Rotate:1,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.7}},
+              {$Duration:1000,x:0.5,y:0.3,$Cols:2,$Zoom:1,$Rotate:1,$SlideOut:true,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InExpo,$Top:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.7}},
+              {$Duration:1200,x:-4,y:2,$Rows:2,$Zoom:11,$Rotate:1,$Assembly:2049,$ChessMode:{$Row:28},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.7}},
+              {$Duration:1200,x:1,y:2,$Cols:2,$Zoom:11,$Rotate:1,$Assembly:2049,$ChessMode:{$Column:19},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.8}}
+            ];
+            
+            var historia_options = {
+              $SlideEasing: $Jease$.$Linear,
+              $DragOrientation: 0,
+              $StartIndex: 0,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: historia_SlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 5,
+                $SpacingX: 0,
+                $SpacingY: 0,
+                $Align: 400
+              }
+            };
+            
+            var historia_slider = new $JssorSlider$("historia", historia_options);
+            
+            //Codigo responsive
+            //si queremos quitar responsive quitar el siguiente codigo
+               function ScaleSlider() {
+                var refSize = historia_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1920);
+                    refSize = Math.max(refSize, 1140);
+                    historia_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 0);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+        
+            //responsive code end
+        };
+    </script>
+
+     <div id="historia" style=" margin: 0 auto; top: 0px; left: 0px;   height: 850px;  background-color: #fff;">
+        <!-- Cargando -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div class="cli-sld" data-u="slides" style=" background:#fff; cursor: pointer;  top: 40px; left: 0px; height: 850px; ">
+                     
+                    
+                      {codigo}
+                      <?php       // Partimos de la categor\\355a historia con id 70, llamamos subcategor\\355as para thumbnails y hacemos slider con articulos de subcategorias (los a\\361os, 2015,2013 etc...)
+                          $db =& JFactory::getDBO(); 
+                          $consulta = "SELECT * FROM `a1407_categories` WHERE `parent_id` LIKE '70' AND `published`=1 ORDER BY title";
+                          $db->setQuery($consulta);
+                          $items = $db->loadObjectList();
+                          foreach($items as $item) {
+                          echo '[[div data-p="240.00" style="display: none;"]]';
+                          echo ' [[div data-u="images"]]';
+                          $scat= $item->id; 
+                          echo '[[div class="cont-hist"]][[div  data-uk-slider="';
+                          echo '{' . 'center:true, infinite:false}"';
+                          echo 'class="uk-slidenav-position"]]';
+                          echo '[[div class="uk-slider-container"]]';
+                          echo '[[ul class="uk-slider uk-grid-width-1-3 uk-flex-center"  ]]';
+                          echo '{' . 'articulos category="'. $scat . '"}';
+                          echo '[[li class=""]]';
+                          echo '[[div style="padding-top:80px;" class="uk-text-center"]][image-intro][[/div]]';
+                          echo '[[div style=""  class="uk-text-center"]][[h2]][title][[/h2]][[p]][text][[/p]][[/div]]';
+                          echo '[[/li]]';
+                          echo'{' . '/articulos}';
+                          echo '[[/ul]]';
+                          echo '[[/div]]';
+                          echo '[[a data-uk-slider-item="previous" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" href="#" draggable="false"]][[/a]]';
+                          echo '[[a data-uk-slider-item="next" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" href="#" draggable="false"]][[/a]]';
+                          echo '[[/div]][[/div]][[/div]]';
+                           ?>
+                           
+                           <div data-u="thumb">  
+                           <?php $ano= $item->title;  
+                           echo $ano;
+                           echo '[[/div]][[/div]]';
+                           }
+                           ?>
+                     {/codigo}
+
+          </div>
+
+ <!-- Thumbnail Navegaci\\363m -->
+        <div data-u="thumbnavigator" class="jssort03-his-65" style="position:absolute;left:0px;top:0px;width:1120px;  height:40px;margin:auto;" data-autocenter="1">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: transparent; filter:alpha(opacity=30.0); opacity:0.3;"></div>
+            <!-- Etiquetas para el thumbnails -->
+            <div data-u="slides" style="cursor: default;">
+                <div data-u="prototype" class="p">
+                    <div class="w">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <!-- fin etiquetas thumbnails -->
+        </div>
+        <!-- Flechas de navegaci\\363n -->
+       <div class="historia-flechas-thumb">
+        <span data-u="arrowleft" class="historia05l" style="top:0px;left:0px;"></span>
+        <span data-u="arrowright" class="historia05r" style="top:0px;right:0px;"></span>
+      </div>
+    </div>
+    <script>
+        historia_slider_init();
+    </script>
+</div>

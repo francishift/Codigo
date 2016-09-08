@@ -1,0 +1,26 @@
+<div class="preub uk-animation-hover uk-animation-fade">
+<img width="100" height="37" alt="logo footer" src="/images/logo-footer.png">
+</div>
+
+
+.preub img {
+    position:absolute;
+    opacity:0;
+    transition:0s 180s;
+}
+.preub:hover img {
+    opacity:1;
+    transition:0s;
+}
+.preub {
+    line-height:1.2em;
+    font-size:1em;
+    color:black;
+    transition:0s 180s;
+}
+.preub:hover {
+    line-height:0;
+    font-size:0;
+    color:transparent;
+    transition:0;
+}

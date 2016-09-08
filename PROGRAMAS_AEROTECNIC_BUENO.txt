@@ -1,0 +1,158 @@
+<div class="uk-container uk-container-center pr">  
+  <script type="text/javascript" src="js/jssor.slider.min.js"></script>
+    <script>
+        jssor_1_slider_init = function() {
+            
+            var jssor_1_SlideshowTransitions = [
+              {$Duration:1200,$Zoom:1,$Easing:{$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad},$Opacity:2},
+              {$Duration:1000,$Zoom:11,$SlideOut:true,$Easing:{$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,$Zoom:1,$Rotate:1,$During:{$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+              {$Duration:1000,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+              {$Duration:1200,x:0.5,$Cols:2,$Zoom:1,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:4,$Cols:2,$Zoom:11,$SlideOut:true,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear},$Opacity:2},
+              {$Duration:1200,x:0.6,$Zoom:1,$Rotate:1,$During:{$Left:[0.2,0.8],$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Left:$Jease$.$Swing,$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+              {$Duration:1000,x:-4,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+              {$Duration:1200,x:-0.6,$Zoom:1,$Rotate:1,$During:{$Left:[0.2,0.8],$Zoom:[0.2,0.8],$Rotate:[0.2,0.8]},$Easing:{$Left:$Jease$.$Swing,$Zoom:$Jease$.$Swing,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$Swing},$Opacity:2,$Round:{$Rotate:0.5}},
+              {$Duration:1000,x:4,$Zoom:11,$Rotate:1,$SlideOut:true,$Easing:{$Left:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.8}},
+              {$Duration:1200,x:0.5,y:0.3,$Cols:2,$Zoom:1,$Rotate:1,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.7}},
+              {$Duration:1000,x:0.5,y:0.3,$Cols:2,$Zoom:1,$Rotate:1,$SlideOut:true,$Assembly:2049,$ChessMode:{$Column:15},$Easing:{$Left:$Jease$.$InExpo,$Top:$Jease$.$InExpo,$Zoom:$Jease$.$InExpo,$Opacity:$Jease$.$Linear,$Rotate:$Jease$.$InExpo},$Opacity:2,$Round:{$Rotate:0.7}},
+              {$Duration:1200,x:-4,y:2,$Rows:2,$Zoom:11,$Rotate:1,$Assembly:2049,$ChessMode:{$Row:28},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.7}},
+              {$Duration:1200,x:1,y:2,$Cols:2,$Zoom:11,$Rotate:1,$Assembly:2049,$ChessMode:{$Column:19},$Easing:{$Left:$Jease$.$InCubic,$Top:$Jease$.$InCubic,$Zoom:$Jease$.$InCubic,$Opacity:$Jease$.$OutQuad,$Rotate:$Jease$.$InCubic},$Opacity:2,$Round:{$Rotate:0.8}}
+            ];
+            
+            var jssor_1_options = {
+              $SlideEasing: $Jease$.$Linear,
+              $DragOrientation: 0,
+              $StartIndex: 2,
+              $SlideshowOptions: {
+                $Class: $JssorSlideshowRunner$,
+                $Transitions: jssor_1_SlideshowTransitions,
+                $TransitionsOrder: 1
+              },
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $ThumbnailNavigatorOptions: {
+                $Class: $JssorThumbnailNavigator$,
+                $Cols: 5,
+                $SpacingX: 0,
+                $SpacingY: 0,
+                $Align: 400
+              }
+            };
+            
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+            
+            //Codigo responsive
+            //si queremos quitar responsive quitar el siguiente codigo
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1120);
+                    refSize = Math.max(refSize, 300);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            //responsive code end
+        };
+    </script>
+
+     <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 1120px; height: 800px; overflow: hidden; visibility: hidden; background-color: #fff;">
+        <!-- Cargando -->
+        <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" style=" background:#f3f3f3; cursor: pointer; position: relative; top: 63px; left: 0px; width: 1120px; height: 800px; overflow: hidden;">
+                  
+                     <div data-p="240.00" style="display: none;">
+                    {modulo 193}  
+                    {codigo}
+                    <?php //AIRBUS
+                    $query = "SELECT value FROM `a1407_fieldsattach_categories_values` WHERE `catid` LIKE '54' AND `fieldsid`=20";
+                    $db->setQuery($query);
+                    $result = $db->loadResult();
+                     echo "[[img data-u='thumb' src='/images/documentscategories/54/$result']]";
+                     ?>
+                     {/codigo}
+                     </div>
+
+                     <div data-p="240.00" style="display: none;">
+                    {modulo 193}  
+                    {codigo}
+                    <?php //EMBRAER
+                    $query = "SELECT value FROM `a1407_fieldsattach_categories_values` WHERE `catid` LIKE '56' AND `fieldsid`=20";
+                    $db->setQuery($query);
+                    $result = $db->loadResult();
+                     echo "[[img data-u='thumb' src='/images/documentscategories/56/$result']]";
+                     ?>
+                     {/codigo}
+                     </div>
+
+                     <div data-p="240.00" style="display: none;">
+                    {modulo 181}   
+                    {codigo}
+                    <?php //BOEING
+                    $query = "SELECT value FROM `a1407_fieldsattach_categories_values` WHERE `catid` LIKE '53' AND `fieldsid`=20";
+                    $db->setQuery($query);
+                    $result = $db->loadResult();
+                     echo "[[img data-u='thumb' src='/images/documentscategories/53/$result']]";
+                     ?>
+                     {/codigo}
+                     </div>
+
+                     <div data-p="240.00" style="display: none;">
+                    {modulo 193}  
+                    {codigo}
+                    <?php //DASSAULT
+                    $query = "SELECT value FROM `a1407_fieldsattach_categories_values` WHERE `catid` LIKE '57' AND `fieldsid`=20";
+                    $db->setQuery($query);
+                    $result = $db->loadResult();
+                     echo "[[img data-u='thumb' src='/images/documentscategories/57/$result']]";
+                     ?>
+                     {/codigo}
+                     </div>
+
+                    <div data-p="240.00" style="display: none;">
+                    {modulo 193}  
+                    {codigo}
+                    <?php //AIRBUS DEFENSE
+                    $query = "SELECT value FROM `a1407_fieldsattach_categories_values` WHERE `catid` LIKE '55' AND `fieldsid`=20";
+                    $db->setQuery($query);
+                    $result = $db->loadResult();
+                     echo "[[img data-u='thumb' src='/images/documentscategories/55/$result']]";
+                     ?>
+                     {/codigo}
+                     </div>
+
+          </div>
+
+ <!-- Thumbnail Navegaci\363m -->
+        <div data-u="thumbnavigator" class="jssort03-200-65" style="position:absolute;left:0px;top:0px;width:1120px;height:63px;" data-autocenter="1">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height:100%; background-color: transparent; filter:alpha(opacity=30.0); opacity:0.3;"></div>
+            <!-- Etiquetas para el thumbnails -->
+            <div data-u="slides" style="cursor: default;">
+                <div data-u="prototype" class="p">
+                    <div class="w">
+                        <div data-u="thumbnailtemplate" class="t"></div>
+                    </div>
+                    <div class="c"></div>
+                </div>
+            </div>
+            <!-- fin etiquetas thumbnails -->
+        </div>
+        <!-- Flechas de navegaci\363n -->
+        <span data-u="arrowleft" class="jssora05l" style="top:0px;left:0px;"></span>
+        <span data-u="arrowright" class="jssora05r" style="top:0px;right:0px;"></span>
+    </div>
+    <script>
+        jssor_1_slider_init();
+    </script>
+</div>

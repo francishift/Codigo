@@ -1,0 +1,414 @@
+<div id="slideshow" data-uk-slideshow="{autoplay:true, kenburns:true}">
+  <div id="slider" class="uk-slidenav-position uk-container uk-container-center " data-uk-slider="{center:true}">
+    <div class="uk-slider-container">
+      <ul class="uk-slider uk-grid-width-medium-1-5 ">
+        {codigo}
+         <?php
+         //consulto las imagenes de las categorias con el campo fieldsattach 20
+         $consulta = "SELECT * FROM `a1407_fieldsattach_categories_values` WHERE `fieldsid` LIKE '20' AND `fieldsid`=20";
+         $db->setQuery($consulta);
+         $items = $db->loadObjectList();
+         foreach($items as $item) {
+         $ruta =  $item->value;                  //archivo de imagen para la ruta
+         $categoria =  $item->catid;          //id de la categoría para la ruta
+         $a=-1; $b++; $c=$a+$b;              //suma de 0,1,2,3 etc en la lista 
+         echo "[[li class='oem' data-uk-slideshow-item='$c']][[img src='/images/documentscategories/$categoria/$ruta']][[/li]]";
+         }
+         ?>
+      {/codigo} 
+      </ul>
+      <a href="" class="uk-slidenav  uk-slidenav-previous" data-uk-slider-item="previous"><img src="images/izq-prog.png"></a>
+      <a href="" class="uk-slidenav  uk-slidenav-next" data-uk-slider-item="next"><img src="images/der-prog.png"></a>
+    </div>
+  </div>
+  <div class="uk-slidenav-position vi">
+    <ul class="uk-slideshow avis">
+       <li>  <!-- Boeing -->
+                     <div data-uk-slider="{center:true, autoplay:true}">
+                        <div class="uk-slider-container">
+                             <ul class="uk-slider uk-grid-width-medium-1-3 uk-text-center">
+                                {articulos cat:53}
+                               <li class="avionslider">
+                              <p>[image-intro]</p>
+                              <h2>[title]</h2>
+                              <div  class="uk-grid  badge-avion">
+                                  <div class="uk-width-1-5">
+                                  </div>
+                                  <div class="uk-width-1-5">
+                                          <div class="uk-badge">METALLIC</div>
+                                   </div>
+                                  <div class="uk-width-1-5 ">
+                                           <div class="uk-badge">COMPOSITES</div>
+                                  </div>
+                                  <div class="uk-width-1-5 ">
+                                           <div class="uk-badge">ASSEMBLY</div>
+                                 </div>
+                                <div class="uk-width-1-5">
+                                </div>
+                             </div>
+                             <!-- Programa 1-->
+                              <div  class="uk-grid checked">  
+                                  <div class="uk-width-1-5">
+                                  {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=25";  //Programa 1
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                
+                                   echo  $nombreprograma;
+                                  }
+                                 ?>
+                                {/codigo} 
+                                  </div>
+                                  <div class="uk-width-1-5">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=21";  // Mettallic 1
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo} 
+                                </div>
+                                  <div class="uk-width-1-5 ">
+                                     {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=22";  //Composites 1
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}      
+                                 </div>
+                                 <div class="uk-width-1-5 ">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=23";  //Assembly 1
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}       
+                                 </div>
+                                <div class="uk-width-1-5">
+                                </div>
+                             </div>
+
+
+                             <!-- Programa 2-->
+                              <div  class="uk-grid checked">  
+                                  <div class="uk-width-1-5">
+                                  {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=26";  // Programas 2
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                
+                                   echo  $nombreprograma;
+                                  }
+                                 ?>
+                                {/codigo} 
+                                  </div>
+                                  <div class="uk-width-1-5">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=29";    //Metallic 2
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo} 
+                                </div>
+                                  <div class="uk-width-1-5 ">
+                                     {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=28";      //Composites 2
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}      
+                                 </div>
+                                 <div class="uk-width-1-5 ">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=27";           //Asembly 2
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}       
+                                 </div>
+                                <div class="uk-width-1-5">
+                                </div>
+                             </div>
+
+
+                             <!-- Programa 3-->
+                              <div  class="uk-grid checked">  
+                                  <div class="uk-width-1-5">
+                                  {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=30";  // Programas 3
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                
+                                   echo  $nombreprograma;
+                                  }
+                                 ?>
+                                {/codigo} 
+                                  </div>
+                                  <div class="uk-width-1-5">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=33";    //Metallic 3
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo} 
+                                </div>
+                                  <div class="uk-width-1-5 ">
+                                     {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=32";      //Composites 3
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}      
+                                 </div>
+                                 <div class="uk-width-1-5 ">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=31";           //Asembly 3
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}       
+                                 </div>
+                                <div class="uk-width-1-5">
+                                </div>
+                             </div>
+ 
+
+                            <!-- Programa 4-->
+                              <div  class="uk-grid checked">  
+                                  <div class="uk-width-1-5">
+                                  {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=34";  // Programas 4
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                
+                                   echo  $nombreprograma;
+                                  }
+                                 ?>
+                                {/codigo} 
+                                  </div>
+                                  <div class="uk-width-1-5">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=37";    //Metallic 4
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo} 
+                                </div>
+                                  <div class="uk-width-1-5 ">
+                                     {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=36";      //Composites 4
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}      
+                                 </div>
+                                 <div class="uk-width-1-5 ">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=35";           //Asembly 4
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}       
+                                 </div>
+                                <div class="uk-width-1-5">
+                                </div>
+                             </div>
+
+
+                            <!-- Programa 5-->
+                              <div  class="uk-grid checked">  
+                                  <div class="uk-width-1-5">
+                                  {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=38";  // Programas 5
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                
+                                   echo  $nombreprograma;
+                                  }
+                                 ?>
+                                {/codigo} 
+                                  </div>
+                                  <div class="uk-width-1-5">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=41";    //Metallic 5
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo} 
+                                </div>
+                                  <div class="uk-width-1-5 ">
+                                     {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=40";      //Composites 5
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}      
+                                 </div>
+                                 <div class="uk-width-1-5 ">
+                                   {codigo}
+                                  <?php
+                                   $articuloid='[id]';
+                                   $consulta = "SELECT * FROM `a1407_fieldsattach_values` WHERE `articleid` LIKE '$articuloid' AND `fieldsid`=39";           //Asembly 5
+                                   $db->setQuery($consulta);
+                                   $items = $db->loadObjectList();
+                                   foreach($items as $item) {
+                                   $nombreprograma =  $item->value;                  
+                                           if (!empty($nombreprograma)) {
+                                               echo "[[img src='/images/checked.png']]";
+                                           }
+                                  }
+                                 ?>
+                                {/codigo}       
+                                 </div>
+                                <div class="uk-width-1-5">
+                                </div>
+                             </div>
+
+                             
+                             
+                             <p>[intro-text]</p>
+                             </li>
+                               {/articulos}
+                            </ul> 
+                           <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slider-item="previous"><img src="images/dizq.png"></a>
+                           <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slider-item="next"><img src="images/dder.png"></a></a>
+                       </div>
+                  </div>
+     </li>
+
+      <li>22222222</li>
+       <li>3333333</li>
+      <li>44444444</li>
+      <li>55555555</li>
+    </ul>
+  </div>
+</div>
+
+
+

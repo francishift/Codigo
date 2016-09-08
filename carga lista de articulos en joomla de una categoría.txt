@@ -1,0 +1,12 @@
+<?php
+$db =& JFactory::getDBO(); 
+$consulta = "SELECT * FROM `a1407_content` WHERE `catid` LIKE '25' AND `state`=1";
+$db->setQuery($consulta);
+$items = $db->loadObjectList();
+
+foreach($items as $item) {  
+  echo '', $item->title, '';  
+  echo '', $item->introtext, '';  
+}  
+
+?>
